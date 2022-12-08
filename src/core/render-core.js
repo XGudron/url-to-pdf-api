@@ -75,7 +75,7 @@ async function render(_opts = {}) {
   const browser = await createBrowser(opts);
   const page = await browser.newPage();
 
-  logger.info('Browser version:', await browser.version()); // HeadlessChrome/109.0.5412.0
+  logger.info('Browser version:', await browser.version()); // HeadlessChrome/107.0.5296.0
 
   page.on('console', (...args) => logger.info('PAGE LOG:', ...args));
 
