@@ -75,6 +75,8 @@ async function render(_opts = {}) {
   const browser = await createBrowser(opts);
   const page = await browser.newPage();
 
+  logger.info('Browser version:', await browser.version()); // HeadlessChrome/109.0.5412.0
+
   page.on('console', (...args) => logger.info('PAGE LOG:', ...args));
 
   page.on('error', (err) => {
@@ -108,7 +110,7 @@ async function render(_opts = {}) {
     await page.setViewport(opts.viewport);
     if (opts.emulateScreenMedia) {
       logger.info('Emulate @media screen..');
-      await page.emulateMedia('screen');
+      await page.emulateMediaType('screen');
     }
 
     if (opts.cookies && opts.cookies.length > 0) {
