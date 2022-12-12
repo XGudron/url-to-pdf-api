@@ -132,7 +132,7 @@ async function render(_opts = {}) {
 
     if (_.isNumber(opts.waitFor) || _.isString(opts.waitFor)) {
       logger.info(`Wait for ${opts.waitFor} ..`);
-      await page.waitFor(opts.waitFor);
+      await page.waitForSelector(opts.waitFor);
     }
 
     if (opts.scrollPage) {
